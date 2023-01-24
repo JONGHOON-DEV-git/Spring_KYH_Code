@@ -30,7 +30,7 @@ public class JdbcTemplateMemberRepository implements MemberRepository {
         parameters.put("name",member.getName());
 
         Number key = jdbcInsert.executeAndReturnKey(new MapSqlParameterSource(parameters));
-        member.setId(key.longValue());
+        member.setID(key.longValue());
         return member;
     }
 
@@ -54,7 +54,7 @@ public class JdbcTemplateMemberRepository implements MemberRepository {
     private RowMapper<Member> memberRowMapper(){
         return (rs,rowNum) ->{
             Member member = new Member();
-            member.setId(rs.getLong("id"));
+            member.setID(rs.getLong("id"));
             member.setName(rs.getString("name"));
             return member;
         };

@@ -25,7 +25,7 @@ public class JdbcMemberRepository implements MemberRepository {
             pstmt.executeUpdate();
             rs = pstmt.getGeneratedKeys();
             if (rs.next()) {
-                member.setId(rs.getLong(1));
+                member.setID(rs.getLong(1));
             } else {
                 throw new SQLException("id 조회 실패");
             }
@@ -49,7 +49,7 @@ public class JdbcMemberRepository implements MemberRepository {
             rs = pstmt.executeQuery();
             if(rs.next()) {
                 Member member = new Member();
-                member.setId(rs.getLong("id"));
+                member.setID(rs.getLong("id"));
                 member.setName(rs.getString("name"));
                 return Optional.of(member);
             } else {
@@ -74,7 +74,7 @@ public class JdbcMemberRepository implements MemberRepository {
             List<Member> members = new ArrayList<>();
             while(rs.next()) {
                 Member member = new Member();
-                member.setId(rs.getLong("id"));
+                member.setID(rs.getLong("id"));
                 member.setName(rs.getString("name"));
                 members.add(member);
             }
@@ -98,7 +98,7 @@ public class JdbcMemberRepository implements MemberRepository {
             rs = pstmt.executeQuery();
             if(rs.next()) {
                 Member member = new Member();
-                member.setId(rs.getLong("id"));
+                member.setID(rs.getLong("id"));
                 member.setName(rs.getString("name"));
                 return Optional.of(member);
             }

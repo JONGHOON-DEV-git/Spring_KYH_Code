@@ -6,8 +6,6 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.Optional;
-
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 
@@ -26,7 +24,7 @@ public class MemoryMemberRepositoryTest {
         member.setName("spring");
 
         repository.save(member);
-        var result = repository.findById(member.getId()).get();
+        var result = repository.findById(member.getID()).get();
         //Assertions.assertEquals(member,result);
 
         Assertions.assertThat(member).isEqualTo(result);
